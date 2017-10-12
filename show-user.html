@@ -1,0 +1,31 @@
+<div id="showUser" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" type="button" data-dismiss="modal"></button>
+                            <h4 class="modal-title"> User information</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <label> Name</label>                        
+                                <span id="name"> {{ user.name}}</span>
+                            </div>
+                            <div>
+                                <label> Username</label>                        
+                                <span id="username"> {{ user.username}}</span>
+                            </div>
+                            <div>
+                                <label> Email</label>                        
+                                <span id="email"> {{ user.email}}</span>
+                            </div>
+                            <div>
+                                <label> Web</label>                        
+                                <a href="http://{{user.website}}" target="_blank"><span id="email"> {{ user.website}}</span></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

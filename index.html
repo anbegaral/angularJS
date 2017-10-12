@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="JsonPlaceHolderApp">
+    <head>
+        <title>Intoware</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body ng-controller="mainController">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Ana Garcia
+                        <small>Web developer</small>
+                    </h1>
+                    <p>This is a challenge that Intoware asked me to evaluate my skills as front end developer.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Posts</h2>
+                </div>
+                <div class="alert-success" ng-if="err">
+                    <p>{{msg}}</p>                        
+                </div> 
+                <div ng-repeat="post in posts" ng-controller="translateController">
+                    <div class="clearfix" ng-if="$index % 4 == 0"></div>
+                    <div class="col-lg-3 col-sm-3 text-center">
+                        <h3> <a href="#"><span id="translate{{post.id}}" data-toggle='modal' data-target="#showTranslate{{post.id}}" ng-click="showTranslate(post.title, post.body)"> {{ post.title}}</span></a></h3>
+                        <p>{{ post.body}}</p>
+                        <button class="btn btn-default" type="button"  id="show{{post.id}}" data-toggle='modal' data-target="#showUser" ng-click="showUser(post.userId)">Show User</button>
+                    </div>
+                    <div id="showTranslate{{post.id}}" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" type="button" data-dismiss="modal"></button>
+                                    <h4 class="modal-title"> Translation</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div>                     
+                                        <span> {{ translate}}</span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div> 
+            <show-user></show-user>
+            <hr>
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright &copy; AnaCloud 2016</p>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </footer>
+        </div>
+        <script src="resources/js/angular.min.js"></script>
+        <script src="resources/js/jquery.min.js"></script>
+        <script src="javascript/ng-app.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>
+    </body>
+</html>
